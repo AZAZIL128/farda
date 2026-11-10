@@ -1,0 +1,16 @@
+"use client";
+import {useEffect,useState,type FormEvent} from "react";
+import {useParams} from "next/navigation";
+import Link from "next/link";
+import {apiFetch} from "@/lib/api";
+import type {Post} from "@/lib/types";
+import {useAuth} from "@/components/AuthProvider";
+import PostCard from "@/components/PostCard";
+type Comment={id:number;content:string;parent:number|null;author:{username:string;display_name?:string};created_at:string;reaction_counts?:Record<string,number>;my_reactions?:string[]};
+export default function PostPage(){const params=useParams();const id=String(params.id);const {user}=useAuth();const [post,setPost]=useState<Post|null>(null);const [comments,setComments]=useState<Comment[]>([]);const [text,setText]=useState("");const [busy,setBusy]=useState(false);const [error,setError]=useState("");
+const load=async()=>{try{const p=await apiFetch<Post>(`/api/posts/${id}/`);setPost(p);const d=await apiFetch<any>(`/api/posts/${id}/comments/`);setComments(d.results||d||[]);}catch(e){setError(e instanceof Error?e.message:"دریافت نوشته ناموفق بود.")}};
+useEffect(()=>{void load()},[id]);
+const send=async(e:FormEvent)=>{e.preventDefault();if(!text.trim())return;setBusy(true);try{await apiFetch(`/api/posts/${id}/comments/`,{method:"POST",body:JSON.stringify({content:text.trim()})});setText("");await load()}catch(e){setError(e instanceof Error?e.message:"ثبت دیدگاه ناموفق بود.")}finally{setBusy(false)}};
+const react=async(commentId:number,reaction:string)=>{if(!user){setError("برای واکنش به دیدگاه وارد حساب شوید.");return}try{await apiFetch(`/api/comments/${commentId}/react/`,{method:"POST",body:JSON.stringify({reaction})});await load()}catch(e){setError(e instanceof Error?e.message:"ثبت واکنش ناموفق بود.")}};
+if(!post)return <main className="page-shell"><p>{error||"در حال دریافت نوشته..."}</p><Link href="/">بازگشت</Link></main>;
+return <main className="page-shell post-detail-page"><Link href="/" className="detail-back">بازگشت به صفحه اصلی</Link><h1>گفتگو درباره این نوشته</h1><PostCard post={post} onChanged={load}/><section className="detail-comments"><h2>دیدگاه‌ها و پاسخ‌ها</h2>{user?<form onSubmit={send} className="detail-comment-form"><textarea value={text} onChange={e=>setText(e.target.value)} placeholder="دیدگاه خود را بنویسید..." maxLength={1500}/><button className="button button-primary" disabled={busy||!text.trim()}>ثبت دیدگاه</button></form>:<p>برای نوشتن دیدگاه وارد حساب شوید.</p>}{error&&<p className="inline-message">{error}</p>}{comments.map(c=><article className="detail-comment" key={c.id}><strong>{c.author.display_name||c.author.username}</strong><p>{c.content}</p>{user&&(user.username===c.author.username||user.username===post.author.username||user.is_staff||user.is_superuser)&&<button className="button button-outline button-small" onClick={async()=>{try{await apiFetch(`/api/comments/${c.id}/`,{method:"DELETE"});await load()}catch(e){setError(e instanceof Error?e.message:"حذف دیدگاه ناموفق بود.")}}}>حذف دیدگاه</button>}<div className="comment-reactions"><button onClick={()=>react(c.id,"like")}>پسندیدن ({c.reaction_counts?.like||0})</button><button onClick={()=>react(c.id,"support")}>حمایت ({c.reaction_counts?.support||0})</button><button onClick={()=>react(c.id,"insightful")}>مفید ({c.reaction_counts?.insightful||0})</button></div></article>)}</section></main>}

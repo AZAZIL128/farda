@@ -1,0 +1,580 @@
+/* =========================================================
+   رنگ‌ها و متغیرهای اصلی برند ایران فردا
+   برای تغییر تم کلی سایت، همین دو رنگ برند را تغییر دهید.
+   ========================================================= */
+:root {
+  --brand-blue: #34479D;
+  --brand-gold: #DDA85B;
+  --ink: #202744;
+  --muted: #77809a;
+  --line: #e6e9f2;
+  --surface: #ffffff;
+  --page: #f6f7fb;
+  --soft-blue: #eef1fb;
+  --soft-gold: #fff7eb;
+  --danger: #b54444;
+  --shadow: 0 12px 40px rgba(34, 49, 105, 0.07);
+}
+
+/* تنظیمات پایه، فونت فارسی و راست‌به‌چپ بودن تمام صفحات */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: Vazirmatn, IRANSans, Tahoma, Arial, sans-serif;
+  direction: rtl;
+  line-height: 1.8;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+img { max-width: 100%; }
+
+/* سربرگ سفید با لوگوی اصلی و خطوط ظریف آبی */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  max-width: 1200px;
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+.brand-link { display: flex; align-items: center; flex: 0 0 auto; }
+.brand-logo { width: 250px; height: auto; object-fit: contain; }
+.main-nav { display: flex; align-items: center; gap: 25px; color: #4c5575; font-size: 14px; font-weight: 700; }
+.main-nav a:hover { color: var(--brand-blue); }
+.header-actions { display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.user-chip { border-radius: 30px; background: var(--soft-blue); color: var(--brand-blue); padding: 6px 13px; font-size: 13px; font-weight: 700; }
+
+/* دکمه‌های یکپارچه با رنگ‌های برند */
+.button {
+  min-height: 42px;
+  border-radius: 11px;
+  padding: 9px 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  font-weight: 800;
+  font-size: 14px;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.button:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(52,71,157,.13); }
+.button-primary { color: #fff; background: var(--brand-blue); }
+.button-primary:hover { background: #293a86; }
+.button-outline { color: var(--brand-blue); background: #fff; border-color: #cbd2ed; }
+.button-gold { color: #44300f; background: var(--brand-gold); }
+.button-small { min-height: 35px; padding: 6px 13px; font-size: 12px; border-radius: 9px; }
+.button-wide { width: 100%; min-height: 48px; }
+
+/* قاب اصلی و بخش معرفی برند در صفحه خانه */
+.page-shell { max-width: 1200px; margin: 0 auto; padding: 34px 24px 70px; }
+.hero-section {
+  min-height: 390px;
+  padding: 42px 48px;
+  display: grid;
+  grid-template-columns: 1.35fr .75fr;
+  align-items: center;
+  gap: 36px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #e1e5f4;
+  border-radius: 26px;
+  background: linear-gradient(115deg, #fff 0%, #fff 58%, #f0f2fc 100%);
+  box-shadow: var(--shadow);
+}
+.hero-section::before { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(52,71,157,.10); border-radius: 50%; top: -145px; left: -65px; }
+.hero-copy { position: relative; z-index: 1; }
+.eyebrow { display: inline-block; color: var(--brand-gold); font-size: 12px; font-weight: 900; letter-spacing: .3px; }
+.hero-copy h1 { margin: 9px 0 12px; color: var(--brand-blue); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.5; font-weight: 900; }
+.hero-copy h1 span { color: var(--ink); }
+.hero-copy p { color: #68718b; max-width: 660px; font-size: 15px; line-height: 2.2; margin: 0; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+.hero-note { display: flex; align-items: center; gap: 8px; margin-top: 22px; color: #848ba1; font-size: 12px; }
+.gold-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand-gold); box-shadow: 0 0 0 5px rgba(221,168,91,.13); }
+.hero-brand-card { min-height: 290px; max-width: 300px; justify-self: center; display: flex; align-items: center; flex-direction: column; justify-content: center; background: #fff; border: 1px solid #e4e8f5; border-radius: 24px; box-shadow: 0 15px 40px rgba(52,71,157,.08); padding: 22px; }
+.hero-symbol { width: 170px; height: 170px; object-fit: contain; }
+.brand-card-line { width: 45px; height: 3px; border-radius: 9px; background: var(--brand-gold); margin: 10px 0 7px; }
+.hero-brand-card strong { color: var(--brand-blue); font-size: 17px; }
+.hero-brand-card span { color: var(--muted); font-size: 12px; }
+
+/* چیدمان ستون فید و ستون معرفی امکانات */
+.content-layout { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 26px; margin-top: 36px; align-items: start; }
+.feed-column, .sidebar-column { min-width: 0; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 0 17px; }
+.section-heading h2 { margin: 2px 0 0; color: var(--brand-blue); font-size: 22px; }
+.sidebar-card, .sidebar-join, .composer-card, .post-card, .profile-card, .admin-section, .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: 17px; box-shadow: 0 5px 20px rgba(29,43,95,.035); }
+.sidebar-card { padding: 20px; margin-bottom: 15px; position: relative; overflow: hidden; }
+.sidebar-card h3 { margin: 0 0 9px; color: var(--brand-blue); font-size: 16px; }
+.sidebar-card p { color: #747c94; font-size: 13px; line-height: 2.1; margin: 0; }
+.sidebar-accent { width: 62px; height: 4px; border-radius: 10px; background: var(--brand-gold); margin-top: 16px; }
+.feature-list { margin: 0; padding: 0 18px 0 0; color: #68718a; font-size: 13px; line-height: 2.4; }
+.feature-list li::marker { color: var(--brand-gold); }
+.sidebar-join { padding: 22px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; background: var(--soft-blue); }
+.sidebar-join img { object-fit: contain; }
+.sidebar-join strong { color: var(--brand-blue); }
+.sidebar-join span { font-size: 12px; color: var(--muted); }
+
+/* فرم ایجاد نوشته جدید */
+.composer-card { padding: 19px 20px; margin-bottom: 18px; }
+.composer-heading { display: flex; align-items: center; gap: 11px; margin-bottom: 13px; }
+.composer-heading > div:last-child { display: flex; flex-direction: column; }
+.avatar-placeholder, .profile-avatar { display: flex; justify-content: center; align-items: center; flex-shrink: 0; background: var(--soft-blue); color: var(--brand-blue); border: 1px solid #dce2f6; border-radius: 50%; font-weight: 900; }
+.avatar-placeholder { width: 42px; height: 42px; }
+.composer-card textarea, .form-stack input, .comment-form input { width: 100%; border: 1px solid var(--line); background: #fbfcff; color: var(--ink); border-radius: 11px; outline: none; padding: 12px 14px; resize: vertical; }
+.composer-card textarea:focus, .form-stack input:focus, .comment-form input:focus { border-color: #9ba8dc; box-shadow: 0 0 0 3px rgba(52,71,157,.08); }
+.composer-footer { display: flex; align-items: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+.composer-footer button { margin-right: auto; }
+.upload-label { color: var(--brand-blue); font-size: 13px; font-weight: 800; cursor: pointer; }
+#post-image, #post-video { display: none; }
+
+/* کارت‌های پست و کنترل تعاملات */
+.post-list { display: flex; flex-direction: column; gap: 16px; }
+.post-card { padding: 19px 20px 13px; }
+.post-author-row { display: flex; align-items: center; gap: 11px; }
+.post-author-info { display: flex; flex-direction: column; flex: 1; }
+.author-name { color: var(--brand-blue); font-weight: 900; font-size: 14px; }
+.verified-mark { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; border-radius: 50%; color: #fff; background: var(--brand-blue); font-size: 11px; vertical-align: middle; }
+.muted { color: var(--muted); }
+.small-text { font-size: 11px; }
+.icon-button { border: 0; background: transparent; color: #9299ad; font-size: 19px; }
+.post-content { white-space: pre-wrap; color: #333d5c; margin: 17px 0; line-height: 2.1; font-size: 14px; }
+.post-image-wrap { overflow: hidden; border-radius: 13px; background: #f1f3f9; margin: 12px 0 15px; text-align: center; }
+.post-image { max-height: 540px; width: 100%; object-fit: contain; }
+.post-stats { display: flex; gap: 18px; color: #9299aa; font-size: 11px; padding: 4px 0 12px; }
+.post-actions { display: flex; gap: 25px; border-top: 1px solid #f0f1f6; padding-top: 10px; }
+.post-action { background: transparent; border: 0; color: #747d96; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; }
+.post-action.active { color: var(--brand-gold); font-weight: 900; }
+.comments-panel { border-top: 1px solid #f0f1f6; margin-top: 12px; padding-top: 12px; }
+.comment-item { display: flex; gap: 9px; align-items: baseline; padding: 6px 0; font-size: 12px; }
+.comment-item strong { color: var(--brand-blue); white-space: nowrap; }
+.comment-item span { color: #59627d; }
+.comment-form { display: flex; gap: 8px; margin-top: 12px; }
+.comment-form input { padding: 7px 11px; font-size: 12px; }
+.inline-message, .notice-bar { background: var(--soft-gold); color: #75531e; border: 1px solid #f4e5c8; border-radius: 10px; padding: 8px 12px; font-size: 12px; margin-top: 10px; }
+.empty-state { min-height: 160px; padding: 35px 20px; background: #fff; border: 1px dashed #cbd2e5; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; color: #7b849e; text-align: center; }
+.empty-state strong { color: var(--brand-blue); }
+
+/* فرم‌های ورود و عضویت */
+.auth-page { min-height: calc(100vh - 160px); padding: 45px 20px 65px; display: flex; justify-content: center; align-items: flex-start; }
+.auth-card { width: 100%; max-width: 470px; border: 1px solid var(--line); border-radius: 22px; background: #fff; box-shadow: var(--shadow); padding: 30px 34px; }
+.auth-card-large { max-width: 520px; }
+.auth-logo { display: flex; align-items: center; justify-content: center; margin: 0 auto 23px; }
+.auth-logo img { width: 260px; height: auto; }
+.auth-card h1 { font-size: 24px; color: var(--brand-blue); margin: 4px 0; }
+.auth-intro { color: var(--muted); font-size: 13px; margin: 4px 0 22px; }
+.form-stack { display: flex; flex-direction: column; gap: 14px; }
+.form-stack label { color: #47516f; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 800; }
+.form-stack input { min-height: 45px; font-size: 14px; }
+.form-stack small { color: #8991a5; font-size: 10px; font-weight: 400; }
+.form-error { background: #fff0f0; border: 1px solid #f0d2d2; color: #a73f3f; padding: 9px 12px; border-radius: 10px; font-size: 12px; }
+.auth-bottom { text-align: center; color: #7b8297; font-size: 12px; margin-top: 20px; }
+.auth-bottom a, .back-home { color: var(--brand-blue); font-weight: 900; }
+.back-home { display: block; text-align: center; font-size: 11px; margin-top: 13px; }
+
+/* عناصر تکمیلی فرم مدیریتی */
+.admin-notice-form { max-width: 760px; }
+.admin-notice-form textarea { border: 1px solid var(--line); background: #fbfcff; border-radius: 10px; padding: 10px 12px; color: var(--ink); resize: vertical; }
+.checkbox-label, .user-select { display: inline-flex !important; flex-direction: row !important; align-items: center; gap: 8px; }
+.user-select span { display: flex; flex-direction: column; }
+.checkbox-label input, .user-select input { accent-color: var(--brand-blue); }
+
+/* پروفایل عمومی کاربر */
+.profile-layout { max-width: 900px; }
+.profile-card { overflow: hidden; padding-bottom: 17px; margin-bottom: 25px; }
+.profile-cover { height: 145px; background: linear-gradient(105deg, var(--brand-blue), #596bb8 70%, var(--brand-gold)); background-position: center; background-size: cover; }
+.profile-main { display: flex; align-items: center; gap: 15px; padding: 0 24px; margin-top: -36px; }
+.profile-avatar { width: 78px; height: 78px; border: 5px solid #fff; background: #f7f8fd; font-size: 27px; overflow: hidden; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.profile-title { flex: 1; padding-top: 35px; }
+.profile-title h1 { margin: 0; color: var(--brand-blue); font-size: 21px; }
+.profile-bio { color: #606985; font-size: 13px; padding: 0 25px; }
+.profile-stats { display: flex; gap: 35px; border-top: 1px solid var(--line); padding: 13px 25px 0; margin-top: 13px; }
+.profile-stats div { display: flex; flex-direction: column; }
+.profile-stats strong { color: var(--brand-blue); font-size: 17px; }
+.profile-stats span { color: var(--muted); font-size: 11px; }
+
+/* پنل مدیریتی و جدول‌های کنترل کاربران و محتوا */
+.admin-layout { max-width: 1240px; }
+.admin-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 25px; }
+.admin-heading h1 { margin: 3px 0; color: var(--brand-blue); font-size: 27px; }
+.admin-heading p { margin: 0; font-size: 12px; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 25px; }
+.stat-card { padding: 17px 20px; display: flex; flex-direction: column; gap: 4px; }
+.stat-card span { color: var(--muted); font-size: 12px; }
+.stat-card strong { color: var(--brand-blue); font-size: 27px; }
+.admin-section { padding: 18px; margin-bottom: 20px; }
+.admin-section .section-heading h2 { font-size: 18px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: right; }
+th { background: #f4f6fc; color: var(--brand-blue); white-space: nowrap; }
+th, td { border-bottom: 1px solid #edf0f6; padding: 10px 11px; vertical-align: middle; }
+td small { display: block; color: var(--muted); }
+.table-actions { white-space: nowrap; }
+.table-actions button, td button { border: 1px solid #dce1f1; border-radius: 7px; background: #fff; color: var(--brand-blue); padding: 5px 8px; font-size: 10px; margin-left: 5px; }
+.table-actions .danger-text { color: var(--danger); }
+.content-cell { min-width: 180px; max-width: 350px; }
+
+/* صفحه اعلان‌های کاربر */
+.narrow-page { max-width: 850px; }
+.notification-list { display: flex; flex-direction: column; gap: 10px; }
+.notification-item { display: flex; align-items: center; gap: 12px; padding: 15px 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+.notification-item.unread { background: #f8f9ff; border-color: #dbe1f8; }
+.notification-item p { margin: 0 0 3px; color: #46506c; font-size: 13px; }
+.notification-item button { margin-right: auto; background: #fff; border: 1px solid #dce1f1; color: var(--brand-blue); border-radius: 8px; padding: 5px 9px; white-space: nowrap; font-size: 11px; }
+.notification-dot { width: 9px; height: 9px; flex-shrink: 0; border-radius: 50%; background: var(--brand-gold); }
+
+/* پابرگ ساده و هماهنگ با ظاهر برند */
+.site-footer { background: #fff; border-top: 1px solid var(--line); }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; gap: 15px; color: #848ba0; font-size: 11px; }
+
+/* سازگاری کامل چیدمان با نمایشگرهای تبلت و موبایل */
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; justify-content: center; padding: 10px 15px; gap: 10px 18px; }
+  .brand-logo { width: 210px; }
+  .main-nav { order: 3; width: 100%; justify-content: center; gap: 18px; }
+  .hero-section { padding: 32px 25px; grid-template-columns: 1fr .7fr; }
+  .content-layout { grid-template-columns: minmax(0, 1fr) 245px; gap: 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+  .page-shell { padding: 20px 13px 45px; }
+  .hero-section { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; }
+  .hero-copy p { margin: 0 auto; }
+  .hero-buttons, .hero-note { justify-content: center; }
+  .hero-brand-card { min-height: 220px; width: 100%; }
+  .hero-symbol { width: 125px; height: 125px; }
+  .content-layout { grid-template-columns: 1fr; }
+  .sidebar-column { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sidebar-card, .sidebar-join { margin: 0; }
+  .sidebar-join { grid-column: 1 / -1; }
+  .section-heading h2 { font-size: 19px; }
+  .composer-card, .post-card { padding: 15px; }
+  .auth-card { padding: 23px 19px; }
+  .admin-heading { align-items: flex-start; flex-direction: column; }
+  .profile-main { padding: 0 14px; gap: 9px; }
+  .profile-avatar { width: 65px; height: 65px; }
+  .profile-title h1 { font-size: 16px; }
+  .profile-stats { padding-right: 16px; gap: 22px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+
+/* بازطراحی ظاهری پنل‌ها و تنظیمات شخصی */
+.admin-layout { max-width: 1320px; }
+.admin-heading { padding: 22px 26px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(110deg,#fff,#f4f6ff); box-shadow: var(--shadow); }
+.admin-heading h1 { font-size: clamp(22px,3vw,30px); letter-spacing: -.4px; }
+.admin-section { border-radius: 19px; padding: 23px; box-shadow: 0 8px 28px rgba(29,43,95,.045); }
+.admin-section .section-heading { padding-bottom: 12px; border-bottom: 1px solid #edf0f7; }
+.admin-section .section-heading h2 { font-size: 17px; }
+.stat-card { border-radius: 16px; padding: 19px 21px; position: relative; overflow: hidden; }
+.stat-card::after { content: ""; position: absolute; width: 5px; inset: 0 0 0 auto; background: var(--brand-gold); }
+.stat-card strong { font-size: 30px; }
+.table-wrap { border: 1px solid #edf0f6; border-radius: 12px; }
+table { min-width: 650px; }
+th { background: #f4f6fc; }
+th,td { padding: 13px 12px; }
+tbody tr:hover { background: #fafbff; }
+.site-settings-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; margin: 18px 0; }
+.site-settings-grid label { display: flex; flex-direction: column; gap: 6px; color: #4b5573; font-size: 12px; font-weight: 800; }
+.site-settings-grid input,.site-settings-grid textarea,.admin-notice-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 10px; background: #fbfcff; padding: 11px 12px; color: var(--ink); outline: none; }
+.site-settings-grid input:focus,.site-settings-grid textarea:focus,.admin-notice-form textarea:focus { border-color: #9ba8dc; box-shadow: 0 0 0 3px rgba(52,71,157,.08); }
+.wide-field { grid-column: 1/-1; }
+.admin-toggle-row { display: flex; flex-wrap: wrap; gap: 14px 22px; margin: 12px 0 18px; }
+.admin-toggle-row label { display: inline-flex; align-items: center; gap: 7px; color: #5f6881; font-size: 12px; }
+.admin-toggle-row input,.preference-row input { accent-color: var(--brand-blue); width: 17px; height: 17px; }
+.settings-page { max-width: 900px; }
+.preference-list { display: flex; flex-direction: column; gap: 0; }
+.preference-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 5px; border-bottom: 1px solid #edf0f6; cursor: pointer; }
+.preference-row:last-of-type { margin-bottom: 20px; }
+.preference-row span { display: flex; flex-direction: column; }
+.preference-row strong { color: var(--brand-blue); font-size: 14px; }
+.preference-row small { color: var(--muted); font-size: 11px; }
+.compact-feed .post-list { gap: 8px; }
+.compact-feed .post-card { padding: 13px 16px 10px; }
+@media(max-width:650px) { .site-settings-grid { grid-template-columns: 1fr; } .wide-field { grid-column: auto; } .admin-section { padding: 15px; } .admin-heading { align-items: flex-start; flex-direction: column; } }
+
+/* ارتقای رابط اجتماعی و سازنده سربرگ */
+.header-inner.header-logo-center .brand-link { position:absolute; left:50%; transform:translateX(-50%); }
+.header-inner.header-logo-left { flex-direction:row-reverse; }
+.account-menu-trigger { display:flex; align-items:center; gap:9px; border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:12px; padding:6px 10px; cursor:pointer; }
+.account-menu-trigger img,.account-menu-trigger>span:first-child { width:32px;height:32px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--soft-blue);color:var(--brand-blue);font-weight:800; }
+.account-menu { position:absolute;top:calc(100% + 10px);left:0;z-index:1000;width:230px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 45px #20274420;display:flex;flex-direction:column; }
+.account-menu strong { padding:10px;border-bottom:1px solid var(--line);direction:ltr;text-align:right; }
+.account-menu a,.account-menu button { padding:11px 10px;text-align:right;border:0;background:transparent;color:var(--ink);font:inherit;border-radius:8px;cursor:pointer; }
+.account-menu a:hover,.account-menu button:hover { background:var(--soft-blue);color:var(--brand-blue); }
+.account-menu button { color:var(--danger); }
+.post-actions-twitter { display:flex;justify-content:space-around;align-items:center;gap:5px;border-top:1px solid var(--line);padding-top:9px;margin-top:8px; }
+.post-actions-twitter .post-action { flex:1;justify-content:center;gap:5px;min-width:0; }
+.post-actions-twitter .post-action span { font-size:12px; }
+.post-video { width:100%;max-height:520px;border-radius:13px;background:#111;margin-top:10px; }
+.report-panel { display:grid;gap:10px;padding:14px;margin-top:10px;background:#fafbfe;border:1px solid var(--line);border-radius:12px; }
+.report-panel select,.report-panel textarea { width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff; }
+.report-panel>div { display:flex;gap:8px; }
+.comment-item>button { margin-right:10px;border:0;background:none;color:var(--brand-blue);font-size:12px; }
+.comment-reply { margin:8px 22px 0 0;padding:8px 12px;border-right:2px solid var(--brand-gold);display:grid;gap:4px;background:#fafbfe;border-radius:8px; }
+.header-builder-box { display:grid;gap:14px;padding:18px;margin:18px 0;background:#f8f9fd;border:1px solid var(--line);border-radius:14px; }
+.header-builder-box label { display:grid;gap:6px;max-width:420px;font-weight:700; }
+.header-builder-preview { min-height:100px;border:1px dashed #aeb7d6;border-radius:12px;padding:14px;display:flex;align-items:center; }
+@media(max-width:700px){.header-inner.header-logo-center .brand-link{position:static;transform:none}.header-inner.header-logo-left{flex-direction:row}.post-actions-twitter .post-action span{font-size:10px}.account-menu{left:0}}
+.post-menu-wrap{position:relative}.post-owner-menu{position:absolute;left:0;top:36px;z-index:5;min-width:130px;padding:6px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);display:grid}.post-owner-menu button{border:0;background:transparent;padding:9px;text-align:right;color:var(--ink)}.post-owner-menu button:last-child{color:var(--danger)}
+
+
+/* نسخه ۱.۳: فید، ناوبری موبایل و کنترل‌های مدرن */
+.site-header{min-height:58px;height:64px;box-shadow:0 1px 8px rgba(20,30,60,.06)}
+.header-inner{min-height:58px;height:64px;display:flex;align-items:center;justify-content:space-between;padding-top:5px;padding-bottom:5px}
+.header-inner .brand-link img{max-height:44px!important;width:auto!important;max-width:150px;object-fit:contain}
+.header-inner.header-logo-center .brand-link{position:absolute;left:50%;transform:translateX(-50%)}
+.account-menu-trigger{padding:5px 8px;border:1px solid #e6e9f1;border-radius:50%;background:#fff}
+.account-menu-trigger b,.account-menu-trigger>span:last-child{display:none}
+.account-menu-trigger img,.account-menu-trigger>span:first-child{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.bottom-nav{position:fixed;z-index:900;bottom:0;left:0;right:0;height:62px;padding:5px max(12px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));display:flex;justify-content:space-around;align-items:center;background:rgba(255,255,255,.97);border-top:1px solid #e8eaf0;backdrop-filter:blur(12px)}
+.bottom-nav a{color:var(--nav-color,#7b8297);min-width:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#7b8297;text-decoration:none;font-size:11px;font-weight:700}
+.bottom-nav a.active{color:var(--nav-active,#34479D)}.bottom-nav svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body{padding-bottom:66px}.site-footer{padding-bottom:75px}
+.post-actions-twitter .post-action svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.post-actions-twitter .post-action{display:flex;align-items:center;min-height:38px;color:#68718b;background:transparent;border:0;cursor:pointer}
+.post-actions-twitter .post-action.active{color:#34479D}.post-actions-twitter .post-action:hover{color:#34479D;background:#f4f6fc;border-radius:9px}
+.post-manage-actions{display:flex;gap:5px}.post-manage-actions button{border:0;background:#f3f5fa;color:#34479D;border-radius:7px;padding:6px 9px;cursor:pointer;font:inherit;font-size:12px}
+.post-inline-editor{display:grid;gap:10px;padding:12px 0}.post-inline-editor textarea{width:100%;border:1px solid #dfe3ed;border-radius:10px;padding:12px;font:inherit;resize:vertical}
+.file-picker{display:inline-flex;align-items:center;gap:8px;border:1px solid #dfe3ed;border-radius:9px;padding:9px 12px;color:#34479D;font-size:13px;cursor:pointer;width:max-content}.file-picker input{max-width:230px;font:inherit}
+input[type=file]{max-width:100%;font:inherit;color:#68718b}input[type=file]::file-selector-button{border:0;border-radius:8px;background:#eef1fa;color:#34479D;padding:8px 12px;margin-inline-end:10px;font:inherit;font-weight:700;cursor:pointer}
+.admin-user-search{display:flex;gap:8px;margin:12px 0}.admin-user-search input{flex:1;min-width:0;border:1px solid #dfe3ed;border-radius:10px;padding:11px 13px;font:inherit}
+.feed-more{text-align:center;padding:24px;color:#7b8297;font-size:13px}.report-panel{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px;background:#fafbfe;border-radius:10px}.report-panel select,.report-panel textarea{font:inherit;border:1px solid #dfe3ed;border-radius:8px;padding:8px}.report-panel textarea{width:100%}
+@media(max-width:700px){.header-inner{padding-inline:12px}.bottom-nav a{min-width:65px}.post-actions-twitter .post-action{gap:3px}.post-actions-twitter .post-action span{font-size:10px}.post-manage-actions button{font-size:11px}.post-author-row{gap:8px}}
+
+/* به‌روزرسانی رابط فارسی و یکپارچه */
+.account-settings-tabs{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.account-settings-tabs button{border:1px solid #dfe4f0;background:#fff;color:#59627d;border-radius:11px;padding:10px 17px;min-height:42px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;transition:.15s}
+.account-settings-tabs button:hover{border-color:#aeb9e0;color:var(--brand-blue);background:#f8f9fe}
+.account-settings-tabs button.active{background:var(--brand-blue);border-color:var(--brand-blue);color:#fff;box-shadow:0 5px 14px rgba(52,71,157,.14)}
+.account-settings-tabs button span{display:inline-flex;align-items:center;justify-content:center;min-width:21px;height:21px;margin-inline-start:5px;padding:0 5px;border-radius:20px;background:#fff;color:var(--brand-blue)}
+.settings-page .admin-section{padding:24px}.settings-page .form-stack,.settings-page .preference-list{gap:18px}.settings-page .form-stack>.button,.settings-page .preference-list>.button{align-self:flex-start;margin-top:7px}.settings-page .form-stack>a{color:var(--brand-blue);font-weight:800;margin-top:4px}
+.settings-page .preference-row{padding:13px 15px;border:1px solid var(--line);border-radius:11px;background:#fbfcff;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.settings-page .preference-row input{width:19px;height:19px;accent-color:var(--brand-blue)}
+.settings-page .section-heading{align-items:center}.settings-page .notification-item{gap:15px;padding:16px}.settings-page .notification-item button{margin-right:auto;border:1px solid #dce1f1;background:#fff;color:var(--brand-blue);border-radius:9px;padding:7px 12px;font:inherit;font-size:12px}
+.compose-entry{margin:0 0 18px;min-width:145px}.compose-page{max-width:900px}.compose-form{padding:25px;display:grid;gap:22px}.compose-field{display:grid;gap:9px;font-weight:800;color:#46506c}.compose-field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcff;color:var(--ink);font:inherit;resize:vertical;line-height:2}.compose-upload-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.compose-upload-card{border:1px dashed #cbd3e9;border-radius:14px;padding:20px;display:flex;align-items:flex-start;flex-direction:column;gap:10px;background:#fbfcff}.compose-upload-card strong{color:var(--brand-blue)}.compose-upload-card p{margin:0}.visually-hidden-file{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.selected-file{font-size:12px;color:#46506c;overflow-wrap:anywhere}.compose-actions{display:flex;gap:12px;flex-wrap:wrap}.upload-path{display:grid;gap:7px;padding:13px;border:1px solid #dfe5f2;border-radius:11px;background:#f8f9fd}.upload-path code{direction:ltr;text-align:left;overflow-wrap:anywhere;color:#34479D}.notification-admin-card{padding:18px;border:1px solid var(--line);border-radius:13px;background:#fbfcff}.admin-notice-form textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px;font:inherit;resize:vertical}.admin-notice-form .checkbox-label{display:flex;align-items:center;gap:9px}.admin-notice-form .checkbox-label input{width:18px;height:18px;accent-color:var(--brand-blue)}
+@media(max-width:700px){.account-settings-tabs{gap:8px}.account-settings-tabs button{flex:1 1 calc(50% - 8px);padding:9px 8px}.settings-page .admin-section{padding:16px}.compose-upload-grid{grid-template-columns:1fr}.compose-form{padding:17px}.compose-actions>*{flex:1}}
+.upload-setting{display:grid;gap:8px;color:#47516f;font-size:13px;font-weight:800}.upload-setting .button{justify-self:start}
+
+
+/* نسخه ۱.۵: یکپارچگی حساب کاربری، افزودن محتوا و مدیریت اعلان‌ها */
+.settings-page .admin-section{padding:26px}
+.account-settings-tabs{gap:14px;margin-bottom:26px}
+.account-settings-tabs button{min-width:142px;padding:11px 19px;border-radius:12px;box-shadow:0 2px 8px rgba(30,45,100,.035)}
+.settings-page .form-stack{gap:19px}
+.settings-page .form-stack>.button{margin-top:5px;align-self:flex-start;min-width:170px}
+.settings-page .upload-setting{padding:14px 16px;border:1px solid var(--line);border-radius:13px;background:#fbfcff}
+.settings-page .upload-setting .button{margin-top:3px}
+.settings-page .preference-list .button{margin-top:18px;min-width:170px}
+.settings-page .notification-list{gap:13px}
+.settings-page .notification-item{padding:17px 19px;gap:15px}
+.settings-page .notification-item button{border-radius:9px;padding:8px 13px}
+.settings-page .post-list{display:grid;gap:16px}
+.compose-standalone{max-width:820px;min-height:calc(100vh - 115px);display:flex;align-items:center;justify-content:center}
+.compose-form{width:100%;max-width:760px;border:1px solid #e2e6f1;border-radius:24px;background:#fff;box-shadow:0 22px 70px rgba(27,39,86,.12);padding:30px}
+.compose-modal-heading{width:100%;max-width:760px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 auto 16px;padding:0 5px}
+.compose-modal-heading h1{margin:3px 0;color:var(--brand-blue);font-size:26px}
+.compose-modal-heading p{margin:0;font-size:13px}
+.compose-close{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:13px;background:#fff;color:#68718b}
+.compose-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.compose-upload-card{min-height:155px;justify-content:center;align-items:center;text-align:center;border-style:solid;background:#fbfcff;gap:12px}
+.compose-upload-card .button{min-width:150px}
+.compose-upload-card .selected-file{max-width:100%;margin:0}
+.compose-actions{gap:14px;padding-top:8px}
+.compose-actions .button{min-width:150px}
+.notification-admin-card{max-width:820px;display:grid;gap:18px;padding:23px;background:#fbfcff}
+.notification-admin-card .button{justify-self:start;min-width:160px}
+.admin-section .table-actions button, .admin-section td button{margin:3px 5px;border-radius:9px;padding:8px 12px;font-size:12px}
+.admin-section .button{margin-top:4px}
+.visually-hidden-file{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:700px){.settings-page .admin-section{padding:16px}.account-settings-tabs{gap:9px}.account-settings-tabs button{min-width:0;flex:1 1 calc(50% - 9px);padding:10px 7px}.compose-standalone{min-height:auto;align-items:flex-start;padding-top:15px}.compose-modal-heading h1{font-size:22px}.compose-form{padding:18px;border-radius:17px}.compose-upload-grid{grid-template-columns:1fr}.compose-actions .button{flex:1}.settings-page .form-stack>.button{width:100%}}
+
+.file-picker input[type=file]{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.inline-confirm{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:12px 0;padding:13px;border:1px solid #ead9d9;border-radius:12px;background:#fffafa;color:#6c3c3c}
+.button-danger{background:#a83f48;color:#fff;border:1px solid #a83f48}
+.confirm-backdrop{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;padding:20px;background:rgba(18,25,49,.42);backdrop-filter:blur(4px)}
+.confirm-dialog{width:min(100%,420px);padding:25px;border-radius:19px;background:#fff;box-shadow:0 25px 80px rgba(0,0,0,.2);text-align:right}
+.confirm-dialog h2{margin:0 0 8px;color:var(--brand-blue);font-size:19px}.confirm-dialog p{margin:0 0 20px;color:#59627d}.confirm-dialog>div{display:flex;gap:12px;flex-wrap:wrap}.confirm-dialog .button{min-width:120px}
+
+/* صفحه مستقل گفتگو و واکنش به دیدگاه‌ها */
+.post-detail-page { max-width: 900px; }
+.detail-back { display:inline-flex; margin-bottom:14px; color:var(--brand-blue); font-weight:800; }
+.post-detail-page > h1 { font-size:22px; color:var(--brand-blue); margin:0 0 18px; }
+.detail-comments { margin-top:18px; padding:22px; background:#fff; border:1px solid var(--line); border-radius:17px; }
+.detail-comments h2 { margin:0 0 16px; font-size:19px; color:var(--brand-blue); }
+.detail-comment-form { display:grid; gap:10px; margin-bottom:18px; }
+.detail-comment-form textarea { width:100%; min-height:90px; border:1px solid var(--line); border-radius:12px; padding:12px; font:inherit; }
+.detail-comment { padding:15px 0; border-top:1px solid var(--line); }
+.detail-comment p { margin:7px 0 10px; }
+.comment-reactions { display:flex; flex-wrap:wrap; gap:9px; }
+.comment-reactions button { border:1px solid #dce2f2; background:#f8f9fd; color:var(--brand-blue); border-radius:9px; padding:5px 12px; font:inherit; font-size:12px; }
+.post-open-link { color:var(--brand-blue); font-size:12px; font-weight:800; }
+.refresh-fab { position:fixed; left:22px; bottom:92px; z-index:25; width:46px; height:46px; border:0; border-radius:50%; background:var(--brand-blue); color:white; box-shadow:0 5px 20px #20274430; display:grid; place-items:center; }
+.refresh-fab svg { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.admin-custom-tabs,.font-upload-box { border:1px solid var(--line); border-radius:14px; padding:18px; margin:18px 0; background:#fbfcff; }
+.admin-custom-tabs h3 { margin:0 0 8px; color:var(--brand-blue); }
+.font-upload-box { display:flex; align-items:center; flex-wrap:wrap; gap:14px; }
+.post-body-link { display:block; }
+.post-body-link:hover .post-content { color:#34479D; }
+.post-video-link { padding:18px; border-radius:12px; background:#eef1fb; color:var(--brand-blue); font-weight:800; text-align:center; }
+
+
+/* نسخه ۱.۷: واکنش نرم آیکون‌ها و وضعیت فعال دکمه‌های تعاملی */
+.post-action svg { transition: transform .2s ease, fill .2s ease, stroke .2s ease; }
+.post-action:hover svg { transform: scale(1.14); }
+.post-action:active svg { transform: scale(.88); }
+.post-action.active { color: var(--brand-blue); background: #edf1ff; }
+.post-action.active svg { fill: currentColor; stroke: currentColor; }
+.refresh-fab { transition: transform .25s ease, box-shadow .25s ease; }
+.refresh-fab:hover { transform: rotate(35deg) scale(1.06); box-shadow: 0 8px 22px #34479d35; }
+.refresh-fab:active { transform: rotate(150deg) scale(.94); }
+/* ابعاد استاندارد رسانه پروفایل: آواتار ۹۶×۹۶ دسکتاپ و ۷۲×۷۲ موبایل؛ جلد نسبت عریض ۳:۱ */
+.profile-cover { min-height: 150px; aspect-ratio: 3 / 1; max-height: 260px; }
+.profile-avatar { width: 96px; height: 96px; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+@media (max-width: 640px) { .profile-avatar { width: 72px; height: 72px; } .profile-cover { min-height: 110px; } }
+/* دکمه تازه‌سازی گرد و آبی در فرم‌ها و بخش تنظیمات نیز ظاهر یکپارچه دارد. */
+.settings-page .refresh-fab, .admin-section .refresh-fab { position: static; display: inline-grid; place-items: center; margin-inline-start: auto; }
+
+
+/* بازطراحی مرکز تنظیمات حساب و پیش‌نمایش رسانه‌های پروفایل - نسخه ۱.۸ */
+.settings-hero{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:18px 0 24px;padding:26px 30px;border:1px solid #e5e9f5;border-radius:22px;background:linear-gradient(120deg,#fff 0%,#f0f3ff 62%,#fff8ed 100%);box-shadow:0 14px 38px rgba(34,49,105,.07)}
+.settings-hero h1{margin:4px 0;color:var(--brand-blue);font-size:clamp(23px,3vw,32px);font-weight:900}
+.settings-hero p{margin:3px 0 0;color:#68718b;font-size:13px}
+.settings-refresh{position:static;flex:0 0 48px;width:48px;height:48px;margin:0;background:var(--brand-blue);box-shadow:0 7px 18px rgba(52,71,157,.2)}
+.settings-refresh svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.settings-panel{border:1px solid #e6eaf4;border-radius:20px;background:#fff;box-shadow:0 14px 38px rgba(34,49,105,.055)}
+.settings-page .account-settings-tabs{display:flex;flex-wrap:wrap;padding:7px;border:1px solid #e7eaf4;border-radius:16px;background:#f5f7fc;gap:7px}
+.settings-page .account-settings-tabs button{flex:1 1 145px;min-height:44px;border:1px solid transparent;border-radius:11px;background:transparent;color:#66708b;font-weight:800;transition:.2s}
+.settings-page .account-settings-tabs button.active{border-color:#dce3ff;background:#fff;color:var(--brand-blue);box-shadow:0 5px 16px rgba(52,71,157,.09)}
+.settings-page .form-stack,.settings-page .preference-list{max-width:850px;margin:0 auto;padding:12px 4px}
+.settings-page .form-stack h2,.settings-page .preference-list h2{color:var(--brand-blue);font-size:20px;margin:8px 0}
+.settings-help{margin:0 0 8px;padding:12px 15px;border-radius:12px;background:#f2f5ff;color:#5e6887;font-size:12px}
+.profile-upload-previews{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;margin:4px 0 10px}
+.avatar-preview{width:132px;height:132px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#e9edfb;box-shadow:0 5px 20px rgba(34,49,105,.14);color:var(--brand-blue);font-size:38px;font-weight:900}
+.avatar-preview img{width:100%;height:100%;object-fit:cover}
+.cover-preview{min-height:132px;border:1px dashed #cbd3ed;border-radius:15px;background:linear-gradient(120deg,#e9edfb,#fff4e4);background-position:center;background-size:cover;display:flex;align-items:flex-end;padding:12px}
+.cover-preview span{padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.88);color:#47516f;font-size:11px}
+.settings-page .upload-setting{border:1px solid #e5e9f3;border-radius:14px;background:#fbfcff;padding:15px}
+.settings-page .upload-setting strong{color:#3b466b}
+.settings-page .form-stack input:not([type=file]),.settings-page .form-stack textarea{border:1px solid #dfe4f0;border-radius:11px;padding:11px 13px;background:#fff;outline:none;transition:border .2s,box-shadow .2s}
+.settings-page .form-stack input:focus,.settings-page .form-stack textarea:focus{border-color:#8798df;box-shadow:0 0 0 3px rgba(52,71,157,.09)}
+.profile-layout{max-width:920px;margin:24px auto}
+.profile-card{border:1px solid #e6eaf3;border-radius:22px;background:#fff;box-shadow:0 14px 36px rgba(34,49,105,.07)}
+.profile-cover{height:auto;min-height:160px;aspect-ratio:3/1;max-height:300px;border-radius:21px 21px 0 0;display:flex;align-items:flex-end;padding:14px 22px;background-image:linear-gradient(120deg,#34479d,#7383c6 65%,#e0b36e);background-position:center;background-size:cover;color:#fff;font-weight:800}
+.profile-main{position:relative;align-items:flex-end;gap:17px;padding:0 28px;margin-top:-48px}
+.profile-avatar{flex:0 0 112px;width:112px;height:112px;border:5px solid #fff;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:#eef1fb;color:var(--brand-blue);font-size:32px;font-weight:900;box-shadow:0 5px 18px rgba(20,30,70,.14)}
+.profile-avatar img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
+.profile-title{padding:0 0 8px}.profile-title h1{font-size:22px}.profile-bio{padding:12px 28px 0;font-size:14px;line-height:2}.profile-stats{margin:16px 28px 0;padding:15px 0 0;gap:clamp(20px,6vw,55px)}
+@media(max-width:640px){.settings-hero{padding:19px 17px;border-radius:17px}.settings-page .admin-section{padding:15px}.profile-upload-previews{grid-template-columns:100px 1fr;gap:10px}.avatar-preview{width:92px;height:92px}.cover-preview{min-height:100px}.profile-main{padding:0 15px;gap:10px;flex-wrap:wrap}.profile-avatar{flex-basis:84px;width:84px;height:84px}.profile-title{padding-bottom:4px}.profile-title h1{font-size:18px}.profile-main>.button{margin-inline-start:auto}.profile-bio{padding-inline:17px}.profile-stats{margin-inline:17px}}
+
+/* هماهنگ‌سازی ظاهر پنل مدیریت و صفحه‌ساز با طراحی جدید */
+.admin-layout>.admin-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:18px 0 24px;padding:25px 28px;border:1px solid #e5e9f5;border-radius:21px;background:linear-gradient(120deg,#fff,#f0f3ff 70%,#fff8ed);box-shadow:0 12px 34px rgba(34,49,105,.06)}
+.admin-layout>.admin-heading h1{font-size:clamp(23px,3vw,31px)}
+.admin-refresh{position:static;flex:0 0 48px;width:48px;height:48px;margin:0;background:var(--brand-blue);box-shadow:0 7px 18px rgba(52,71,157,.2)}
+.admin-refresh svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.admin-layout>.admin-section{margin:20px 0;padding:24px;border:1px solid #e5e9f2;border-radius:19px;background:#fff;box-shadow:0 10px 30px rgba(34,49,105,.045)}
+.admin-layout .header-builder-box,.admin-layout .admin-custom-tabs,.admin-layout .font-upload-box{border:1px solid #e5e9f3;border-radius:16px;background:#f9faff;padding:20px;margin:17px 0}
+.admin-layout .header-builder-box h3,.admin-layout .admin-custom-tabs h3{margin:0 0 10px;color:var(--brand-blue);font-size:17px}
+.admin-layout .site-settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:17px 0}
+.admin-layout .site-settings-grid label,.admin-layout .header-builder-box>label,.admin-layout .font-upload-box>label{display:grid;gap:7px;color:#47516f;font-size:12px;font-weight:800}
+.admin-layout .site-settings-grid input:not([type=color]):not([type=checkbox]),.admin-layout .site-settings-grid textarea,.admin-layout .site-settings-grid select,.admin-layout .header-builder-box input:not([type=range]):not([type=color]),.admin-layout .font-upload-box input:not([type=file]){width:100%;border:1px solid #dfe4f0;border-radius:10px;background:#fff;padding:10px 12px;font:inherit}
+.admin-layout .site-settings-grid textarea{min-height:90px;resize:vertical}.admin-layout .wide-field{grid-column:1/-1}
+.admin-layout .header-builder-preview{min-height:110px;border:1px solid #e1e5ef;border-radius:13px;padding:15px;display:flex;align-items:center}
+.admin-layout .admin-toggle-row{display:flex;flex-wrap:wrap;gap:15px;padding:14px;border-radius:12px;background:#f6f8fd}
+.admin-layout .admin-toggle-row label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.admin-layout .font-upload-box{display:flex;align-items:center;flex-wrap:wrap;gap:14px}.admin-layout .font-upload-box>strong{color:var(--brand-blue)}
+.admin-layout .admin-section .section-heading{margin-bottom:15px}.admin-layout .table-wrap{overflow:auto;border:1px solid #e8ebf3;border-radius:13px}
+@media(max-width:700px){.admin-layout>.admin-heading{padding:18px}.admin-layout>.admin-section{padding:15px}.admin-layout .site-settings-grid{grid-template-columns:1fr}.admin-layout .wide-field{grid-column:auto}}
+
+
+/* نمایش متن و رسانه پست در محدوده کارت، بدون سرریز از ستون کناری */
+.post-card,.post-body-link,.post-content{min-width:0;max-width:100%;box-sizing:border-box}
+.post-content{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;hyphens:auto;max-width:100%;line-height:2.05}
+.post-media-trigger{display:block;width:100%;max-width:100%;padding:0;border:0;background:transparent;text-align:center;cursor:zoom-in;color:inherit;min-width:0}
+.post-image-wrap{width:100%;max-width:100%;max-height:340px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:14px;background:#f1f3f9}
+.post-image{display:block;width:auto;max-width:100%;height:auto;max-height:340px;object-fit:contain;margin:auto}
+.post-image.media-load-error{min-height:90px;min-width:180px;object-fit:contain}
+.media-expand-hint{display:block;margin-top:5px;color:#7b8297;font-size:11px}
+.post-video-wrap{position:relative;width:100%;max-width:100%;margin:12px 0 15px;padding:10px;border-radius:14px;background:#f1f3f9;box-sizing:border-box}
+.post-video{display:block;width:100%;max-width:100%;max-height:340px;object-fit:contain;border-radius:10px;background:#111}
+.media-expand-button{display:block;margin:7px auto 0;border:0;background:transparent;color:#34479d;font-size:12px;font-weight:700;cursor:pointer}
+.media-lightbox{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(8,12,25,.9)}
+.media-lightbox-content{display:flex;align-items:center;justify-content:center;width:min(1100px,96vw);height:min(88vh,900px)}
+.media-lightbox-content img,.media-lightbox-content video{display:block;max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.media-lightbox-close{position:absolute;top:18px;inset-inline-end:22px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:#182044;font-size:30px;line-height:1;cursor:pointer}
+.avatar-placeholder{overflow:hidden}
+.avatar-placeholder img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.account-menu-trigger[data-fallback]::after,.profile-avatar[data-fallback]::after,.avatar-placeholder[data-fallback]::after{content:attr(data-fallback);display:grid;place-items:center;width:100%;height:100%;color:var(--brand-blue);font-weight:900}
+@media(max-width:640px){.post-image-wrap,.post-image{max-height:280px}.post-video{max-height:280px}.media-lightbox{padding:10px}.media-lightbox-content{width:100%;height:82vh}}
+.post-body-link{display:block;min-width:0;max-width:100%;}
+
+/* قواعد اندازه‌پذیری کنترل‌شده: تغییر اندازه فقط در محدوده والد و ارتفاع معقول انجام می‌شود. */
+.post-card, .sidebar-card, .admin-section, .compose-upload-card { min-width: 0; max-width: 100%; box-sizing: border-box; }
+.post-content, .selected-file, .upload-path, .upload-path a, .upload-path code { overflow-wrap: anywhere; word-break: break-word; }
+textarea { box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; min-height: 88px; max-height: 420px; resize: vertical; overflow: auto; }
+input, select, button { max-width: 100%; box-sizing: border-box; }
+.upload-path { display: grid; gap: 7px; min-width: 0; padding: 12px; border: 1px solid var(--line, #dce2f0); border-radius: 12px; background: var(--surface-soft, #f7f8fc); }
+.upload-path a { display: block; color: var(--brand-blue); }
+.upload-path small { color: var(--muted, #68708a); }
+.selected-file small { display: block; color: var(--muted, #68708a); }
+
+/* چیدمان جمع‌وجور و بخش‌بندی‌شده پنل مدیریت */
+.admin-layout .admin-collapsible{padding:0;overflow:hidden}
+.admin-layout .admin-collapsible>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 22px;cursor:pointer;min-height:76px}
+.admin-layout .admin-collapsible>summary::-webkit-details-marker{display:none}
+.admin-layout .admin-collapsible>summary>span{display:grid;gap:5px;min-width:0}
+.admin-layout .admin-collapsible>summary strong{font-size:16px;color:var(--brand-blue)}
+.admin-layout .admin-collapsible>summary small{font-size:12px;color:var(--muted);font-weight:500}
+.admin-layout .admin-collapsible>summary>b{flex:0 0 auto;padding:8px 13px;border-radius:10px;background:#f0f3ff;color:var(--brand-blue);font-size:11px}
+.admin-layout .admin-collapsible>summary:after{content:"＋";color:var(--brand-blue);font-size:18px}
+.admin-layout .admin-collapsible[open]>summary{border-bottom:1px solid #edf0f6;background:#fbfcff}
+.admin-layout .admin-collapsible[open]>summary:after{content:"−"}
+.admin-layout .admin-collapsible-body{padding:20px 22px}
+.admin-layout .admin-collapsible-body>.table-wrap{margin-top:13px}
+.admin-post-summary{display:grid;gap:5px;max-width:460px;color:#333e60;line-height:1.8;text-decoration:none}
+.admin-post-summary small{color:var(--brand-blue);font-size:11px;font-weight:800}
+.admin-post-summary:hover{color:var(--brand-blue)}
+.admin-layout .header-builder-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:16px}
+.admin-layout .header-builder-box h3,.admin-layout .header-builder-preview{grid-column:1/-1}
+.admin-layout .header-builder-box>img{max-width:180px!important;max-height:64px!important;padding:8px;border:1px solid #e6eaf3;border-radius:12px;background:white}
+.admin-layout .logo-upload-control{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:13px;border:1px dashed #cbd3e8;border-radius:13px;background:#fff}
+.admin-layout .logo-upload-title{width:100%;font-size:12px;font-weight:800;color:#47516f}
+.admin-layout .logo-upload-control small{color:var(--muted);font-size:11px;overflow-wrap:anywhere}
+.admin-layout .header-builder-box>label{min-width:0;align-content:start}
+.admin-layout .header-builder-box input[type=range]{width:100%;accent-color:var(--brand-blue)}
+.admin-layout .header-builder-box input[type=color],.admin-layout .site-settings-grid input[type=color]{width:100%;height:42px;padding:4px;border:1px solid #dfe4f0;border-radius:10px;background:white}
+.admin-layout .header-builder-preview{min-height:105px!important;border-radius:14px!important;padding:18px!important}
+.admin-layout .font-upload-box{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:13px!important}
+.admin-layout .font-upload-box>strong,.admin-layout .font-upload-box>p{grid-column:1/-1;margin:0}
+.admin-layout .font-upload-box>label[for="custom-font-file"]{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin:0;padding:9px 13px;border:1px solid #dce3f4;border-radius:10px;background:white;color:var(--brand-blue);cursor:pointer}
+.admin-layout .font-upload-box>label:last-child{display:grid;gap:7px;min-width:0}
+.admin-layout .font-upload-box>label:last-child input{height:42px;min-width:0}
+.admin-layout .font-upload-box>span{grid-column:1/-1;overflow-wrap:anywhere;color:var(--muted);font-size:11px}
+@media(max-width:700px){.admin-layout .admin-collapsible>summary{padding:15px;gap:9px}.admin-layout .admin-collapsible>summary>b{font-size:10px;padding:7px 9px}.admin-layout .admin-collapsible-body{padding:14px}.admin-layout .header-builder-box{grid-template-columns:1fr}.admin-layout .header-builder-box h3,.admin-layout .header-builder-preview{grid-column:auto}.admin-layout .font-upload-box{grid-template-columns:1fr}.admin-layout .font-upload-box>strong,.admin-layout .font-upload-box>p,.admin-layout .font-upload-box>span{grid-column:auto}}
+
+/* اصلاحات نسخه نهایی */
+.admin-layout .admin-heading{display:flex;align-items:center;gap:16px;position:relative;padding-inline-end:0}
+.admin-layout .admin-refresh-inline{position:static;flex:0 0 44px;margin-inline-start:auto;width:44px;height:44px}
+.admin-layout .content-cell{max-width:320px;min-width:180px;white-space:normal}
+.admin-layout .admin-post-summary{display:block;max-width:300px;max-height:5.4em;overflow:hidden;line-height:1.8;overflow-wrap:anywhere}
+.admin-layout .admin-post-summary small{display:block;margin-top:5px}
+.upload-progress{display:grid;gap:9px;padding:13px 15px;border:1px solid #dfe5f2;border-radius:12px;background:#f8faff}
+.upload-progress-label{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#46506c}
+.upload-progress-track{height:9px;border-radius:99px;background:#e7ebf5;overflow:hidden}
+.upload-progress-track span{display:block;height:100%;border-radius:99px;background:var(--brand-blue);transition:width .12s linear}
+@media(max-width:600px){.admin-layout .admin-heading{align-items:flex-start}.admin-layout .admin-refresh-inline{position:static;margin-top:8px}}

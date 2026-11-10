@@ -1,0 +1,7 @@
+# جلوگیری از ورود فایل‌های موقتی به ایمیج بک‌اند
+__pycache__/
+*.py[cod]
+media/
+staticfiles/
+.env
+.venv/
