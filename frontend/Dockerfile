@@ -1,11 +1,12 @@
-# مرحله اول: نصب وابستگی‌های Next.js با Node.js نسخه LTS
-FROM node:26-alpine AS deps
+# مرحله اول: نصب وابستگی‌های Next.js با Node.js نسخه 18 (موجود روی سیستم شما)
+FROM node:20-alpine AS deps
 WORKDIR /app
 COPY package.json ./
-RUN npm install
+# تنظیم میرور ایرانی برای npm
+RUN npm config set registry https://registry.npmmirror.com && npm install
 
 # مرحله دوم: ساخت نسخه Production فرانت‌اند
-FROM node:26-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -13,7 +14,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # مرحله سوم: ایمیج سبک نهایی با خروجی standalone
-FROM node:26-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
